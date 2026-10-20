@@ -3,6 +3,13 @@ pretty_name: PKA-SubjectSpatial-10K
 license: apache-2.0
 size_categories:
   - 1K<n<10K
+configs:
+  - config_name: default
+    data_files:
+      - split: train
+        path: train/*.parquet
+      - split: test
+        path: test/*.parquet
 ---
 
 # PKA-SubjectSpatial-10K

@@ -17,12 +17,6 @@ three final 20K LoRA adapters.
 Authors: Chao Zhou, Tianyi Wei, Yiling Chen, Wenbo Zhou, Weiming Zhang, and
 Nenghai Yu. Public repository: <https://github.com/zhouchao-ops/PKA>.
 
-This directory is a release candidate for our composable FLUX control
-implementation. It keeps the smallest useful surface: multi-image inference,
-corrected compact position-aligned attention, LoRA training, and three
-representative two-condition recipes. It also contains the three final 20K
-LoRA checkpoints and draft release documentation.
-
 The release does **not** include base-model files, training-data Parquet files,
 generated images, notebooks, paper figures, or internal benchmark scripts.
 
@@ -130,15 +124,13 @@ every 2,000 steps. Local paths can be
 provided without editing the release configs via `OMINI_FLUX_PATH`,
 `OMINI_DATASET_PATH`, and `OMINI_SAVE_PATH`.
 
-Weights are written below `<save_path>/<timestamp>/ckpt/`. Weights and dataset
-licenses must be reviewed independently before publishing them.
+Weights are written below `<save_path>/<timestamp>/ckpt/`.
 
 ## Training data
 
 The local training snapshot contains 8,200 train and 1,575 test examples in
-100 Parquet shards (approximately 13 GB). It is not embedded in this code
-bundle. Read `dataset/README.md` before attempting to publish it: its image
-provenance and redistribution rights still require confirmation.
+100 Parquet shards (approximately 13 GB). It is published separately as
+[PKA-SubjectSpatial-10K](https://huggingface.co/datasets/zc1696190340/PKA-SubjectSpatial-10K).
 
 ## Validate the package
 
