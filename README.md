@@ -1,7 +1,21 @@
 # PKA
 
-Official implementation and release candidate for PKA, built on OminiControl
-and FLUX. Public repository: <https://github.com/zhouchao-ops/PKA>.
+Official implementation of **Rethinking Multi-Condition DiTs: Eliminating
+Redundant Attention via Position-Alignment and Keyword-Scoping**.
+
+PKA reduces redundant image-to-condition attention in multi-condition
+Diffusion Transformers. Position-Aligned Attention (PAA) keeps aligned spatial
+interactions, Keyword-Scoped Attention (KSA) restricts subject interactions to
+keyword-relevant regions, and Conditional Sensitivity-Aware Sampling (CSAS)
+prioritizes high-sensitivity training timesteps.
+
+This repository is the **Compact = 2** release built on FLUX.1-dev and
+OminiControl2: 512 x 512 generation uses 256 x 256 condition images. It
+contains corrected compact PAA `aligned1`, optional KSA, training code, and
+three final 20K LoRA adapters.
+
+Authors: Chao Zhou, Tianyi Wei, Yiling Chen, Wenbo Zhou, Weiming Zhang, and
+Nenghai Yu. Public repository: <https://github.com/zhouchao-ops/PKA>.
 
 This directory is a release candidate for our composable FLUX control
 implementation. It keeps the smallest useful surface: multi-image inference,
@@ -158,3 +172,14 @@ Source code is Apache-2.0. The PKA LoRA weights are FLUX.1 [dev] derivatives
 and use the FLUX.1 [dev] Non-Commercial License included under `checkpoints/`.
 The PKA-SubjectSpatial-10K dataset card declares Apache-2.0. These licenses
 apply to separate artifacts and must not be conflated.
+
+## Citation
+
+```bibtex
+@article{zhou2026pka,
+  title={Rethinking Multi-Condition DiTs: Eliminating Redundant Attention via Position-Alignment and Keyword-Scoping},
+  author={Zhou, Chao and Wei, Tianyi and Chen, Yiling and Zhou, Wenbo and Zhang, Weiming and Yu, Nenghai},
+  journal={IEEE Transactions on Visualization and Computer Graphics},
+  year={2026}
+}
+```

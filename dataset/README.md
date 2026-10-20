@@ -7,10 +7,10 @@ size_categories:
 
 # PKA-SubjectSpatial-10K
 
-This directory documents the local dataset used for the three released 20K
-LoRAs. The dataset files are intentionally not copied into the source-code
-release. Publish them as a separate dataset repository only after completing
-the rights and provenance review below.
+PKA-SubjectSpatial-10K is the curated subject-and-spatial-control subset used
+to train the three released PKA Compact = 2 LoRAs. It contains target images,
+descriptions, subject references, and multiple spatial conditions for
+multi-condition image generation.
 
 ## Local snapshot
 
@@ -41,18 +41,28 @@ The local Parquet schema stores the control images as binary values. The
 training recipes released here use subject references together with canny or
 depth, or canny together with depth.
 
-## Required review before upload
+## Training setup
 
-1. Identify the original source and license of every target image.
-2. Document how captions and each control image were created, including model
-   names, versions, and licenses.
-3. Confirm that redistribution, modification, and model training are allowed.
-4. Audit personal data, faces, minors, copyrighted characters, trademarks,
-   medical content, and NSFW content.
-5. Explain the train/test split and remove duplicates or leakage.
-6. Decide whether the 75 rows with invalid descriptions should be removed.
-7. Replace the placeholder `collection_1` values with useful provenance, or
-   explain why source-level provenance cannot be provided.
-8. The release uses Apache-2.0, matching the historical dataset card. The
-   publisher remains responsible for confirming that it has the rights needed
-   to distribute the underlying images, captions, and generated controls.
+The released FLUX.1-dev LoRAs are trained for 20,000 optimizer steps with
+LoRA rank/alpha 4, batch size 1, gradient accumulation 4, and the Prodigy
+optimizer. Conditions are encoded at 256 x 256 for 512 x 512 generation.
+
+## Notes
+
+- The release uses Apache-2.0.
+- 75 rows have `description_valid=false`; the flag is retained so downstream
+  users can filter them explicitly.
+- All current rows use the collection label `collection_1`.
+- The dataset repository is
+  <https://huggingface.co/datasets/zc1696190340/PKA-SubjectSpatial-10K>.
+
+## Citation
+
+```bibtex
+@article{zhou2026pka,
+  title={Rethinking Multi-Condition DiTs: Eliminating Redundant Attention via Position-Alignment and Keyword-Scoping},
+  author={Zhou, Chao and Wei, Tianyi and Chen, Yiling and Zhou, Wenbo and Zhang, Weiming and Yu, Nenghai},
+  journal={IEEE Transactions on Visualization and Computer Graphics},
+  year={2026}
+}
+```
