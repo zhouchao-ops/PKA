@@ -9,7 +9,7 @@ matching recipes in `../configs/`.
 | `subject_depth/` | subject + depth | 29,066,872 bytes | 4 / 4 |
 | `canny_depth/` | canny + depth | 29,066,872 bytes | 4 / 4 |
 
-All three use FLUX.1-dev, corrected condition layout, compact PAA `aligned1`,
+All three use FLUX.1-dev, compact PAA `aligned1`,
 batch size 1, gradient accumulation 4, Prodigy, and 20,000 optimizer steps.
 Each file contains 686 tensors in safetensors format. Verify downloads with:
 

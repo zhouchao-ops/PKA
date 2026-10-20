@@ -147,7 +147,7 @@ def main() -> None:
         "subject_region": has_subject,
         "compact_paa": compact_paa,
         "compact_paa_mode": "aligned1",
-        "condition_layout": "corrected",
+        "condition_layout": "aligned1",
         "keyword": args.keyword,
         "threshold": args.ksa_threshold or 0.0,
         "ksa_enabled": args.ksa_threshold is not None,

@@ -86,7 +86,7 @@ import functools
 
 def conditional_gpu_profile(func=None, device=0):
     """
-    一个条件式的GPU显存分析装饰器（修正版）。
+    一个条件式的GPU显存分析装饰器。
 
     它会精确计算函数执行期间，相对于函数开始时的“峰值显存增量”。
     仅当环境变量 `PROFILE_GPU_MEMORY` 设置为 '1' 或 'true' (不区分大小写) 时激活。
@@ -121,7 +121,7 @@ def conditional_gpu_profile(func=None, device=0):
         # (P) 执行期间的峰值
         peak_mem = torch.cuda.max_memory_allocated(device=device)
         
-        # --- 修正后的报告 ---
+        # --- 显存报告 ---
         peak_increase = peak_mem - mem_before
         net_increase = mem_after - mem_before
 

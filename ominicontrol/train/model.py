@@ -184,7 +184,7 @@ class OminiModel(L.LightningModule):
                 else None
             )
 
-        # Add runtime metadata used by corrected compact PAA.
+        # Add runtime metadata used by compact PAA.
         runtime_model_config = self.model_config
         if self.model_config.get("compact_paa", False):
             runtime_model_config = dict(self.model_config)

@@ -34,7 +34,7 @@ def _merge_condition_heads(
     condition_num: int,
     tokens_per_condition: int
 ) -> torch.Tensor:
-    """Inverse of the corrected condition-head split."""
+    """Inverse of the condition-head split."""
     return tensor.permute(1, 2, 0, 3, 4).reshape(
         batch, heads, condition_num * tokens_per_condition, -1
     )

@@ -3,7 +3,7 @@ import torch
 from ominicontrol.flux.block import _merge_condition_heads, _split_condition_heads
 
 
-def test_corrected_split_preserves_condition_and_head_axes():
+def test_split_preserves_condition_and_head_axes():
     batch, heads, conditions, tokens, dim = 1, 4, 2, 3, 2
     packed = torch.arange(
         batch * heads * conditions * tokens * dim
@@ -20,7 +20,7 @@ def test_corrected_split_preserves_condition_and_head_axes():
     assert torch.equal(actual, expected)
 
 
-def test_corrected_merge_inverts_corrected_split():
+def test_merge_inverts_split():
     batch, heads, conditions, tokens, dim = 2, 4, 3, 5, 2
     packed = torch.randn(batch, heads, conditions * tokens, dim)
     split = _split_condition_heads(
@@ -30,4 +30,3 @@ def test_corrected_merge_inverts_corrected_split():
         split, batch, heads, conditions, tokens
     )
     assert torch.equal(merged, packed)
-

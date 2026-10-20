@@ -16,7 +16,7 @@ model:
   subject_region: false
   compact_paa: true
   compact_paa_mode: aligned1
-  condition_layout: corrected
+  condition_layout: aligned1
 
 train:
   batch_size: 1
@@ -25,7 +25,7 @@ train:
   save_interval: 2000
   sample_interval: 2000
   gradient_checkpointing: true
-  save_path: "outputs/canny_depth_corrected"
+  save_path: "outputs/canny_depth_compact"
   condition_type: "spatial"
   condition_types:
     - "canny"
@@ -57,7 +57,7 @@ train:
       weight_decay: 0.01
 
 training_strategy:
-  - name: "corrected-layout canny+depth compact aligned1 20k rank4 accum4"
+  - name: "canny+depth compact aligned1 20k rank4 accum4"
     min_conditions: 2
     max_conditions: 2
     threshold_step: 20000

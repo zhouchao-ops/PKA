@@ -18,7 +18,7 @@ Chao Zhou · Tianyi Wei · Yiling Chen · Wenbo Zhou · Weiming Zhang · Nenghai
 
 PKA is an efficient multi-condition control framework for Diffusion Transformers. It removes redundant image-to-condition interactions while preserving control quality through **Position-Aligned Attention (PAA)**, **Keyword-Scoped Attention (KSA)**, and **Conditional Sensitivity-Aware Sampling (CSAS)**. In our experiments, PKA delivers up to **10.0× faster attention computation** and **5.1× lower attention-module VRAM usage**.
 
-This repository provides our corrected **Compact = 2** implementation for FLUX.1-dev/OminiControl2, training recipes, and three final 20K-step LoRA adapters. For 512 × 512 generation, spatial conditions are encoded at 256 × 256.
+This repository provides our **Compact = 2** implementation for FLUX.1-dev/OminiControl2, training recipes, and three final 20K-step LoRA adapters. For 512 × 512 generation, spatial conditions are encoded at 256 × 256.
 
 ## Highlights
 
@@ -89,7 +89,7 @@ Download [PKA-SubjectSpatial-10K](https://huggingface.co/datasets/zc1696190340/P
 XFL_CONFIG=configs/subject_canny.yaml python -m ominicontrol.train.train
 ```
 
-Paths may also be supplied through `OMINI_FLUX_PATH`, `OMINI_DATASET_PATH`, and `OMINI_SAVE_PATH`. The released recipes use Compact = 2, corrected `aligned1` PAA, LoRA rank/alpha 4, batch size 1, gradient accumulation 4, Prodigy, and 20,000 optimizer steps.
+Paths may also be supplied through `OMINI_FLUX_PATH`, `OMINI_DATASET_PATH`, and `OMINI_SAVE_PATH`. The released recipes use Compact = 2, `aligned1` PAA, LoRA rank/alpha 4, batch size 1, gradient accumulation 4, Prodigy, and 20,000 optimizer steps.
 
 ## Dataset
 

@@ -17,7 +17,7 @@ def test_default_inference_geometry_matches_training_recipes():
         recipe = yaml.safe_load((ROOT / "configs" / f"{name}.yaml").read_text())
         assert recipe["model"]["compact_paa"] is compact_paa
         assert recipe["model"]["compact_paa_mode"] == "aligned1"
-        assert recipe["model"]["condition_layout"] == "corrected"
+        assert recipe["model"]["condition_layout"] == "aligned1"
         assert recipe["train"]["dataset"]["position_scale"] == position_scale
 
 

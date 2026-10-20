@@ -7,4 +7,4 @@
 - LoRA: rank 4, alpha 4
 - Conditions: 256 x 256 subject reference and canny map
 - Output: 512 x 512
-- Layout: corrected compact PAA `aligned1`
+- Layout: compact PAA `aligned1`
