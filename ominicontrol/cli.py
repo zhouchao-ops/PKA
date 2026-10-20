@@ -81,6 +81,18 @@ def build_parser() -> argparse.ArgumentParser:
     return parser
 
 
+def inference_geometry(
+    condition_size: int, width: int, height: int
+) -> tuple[bool, float]:
+    """Return compact-PAA enablement and the training-matched position scale."""
+    compact_paa = condition_size != width or condition_size != height
+    if compact_paa and width != height:
+        raise ValueError("compact aligned1 inference requires square output")
+    if compact_paa and width % condition_size:
+        raise ValueError("output size must be an integer multiple of condition size")
+    return compact_paa, width / condition_size
+
+
 def main() -> None:
     args = build_parser().parse_args()
     if args.width % 16 or args.height % 16:
@@ -89,6 +101,13 @@ def main() -> None:
         raise SystemExit("--condition-size must be a positive multiple of 16")
     if args.ksa_threshold is not None and not 0 <= args.ksa_threshold <= 1:
         raise SystemExit("--ksa-threshold must be in [0, 1]")
+
+    try:
+        compact_paa, position_scale = inference_geometry(
+            args.condition_size, args.width, args.height
+        )
+    except ValueError as error:
+        raise SystemExit(str(error)) from error
 
     dtype = torch.bfloat16 if args.device.startswith("cuda") else torch.float32
     pipe = FluxPipeline.from_pretrained(args.model, torch_dtype=dtype).to(args.device)
@@ -105,7 +124,12 @@ def main() -> None:
             else (0, 0)
         )
         conditions.append(
-            Condition(condition_type, image, position_delta=position_delta)
+            Condition(
+                condition_type,
+                image,
+                position_delta=position_delta,
+                position_scale=position_scale,
+            )
         )
 
     has_subject = any(item.condition_type == "subject" for item in conditions)
@@ -121,7 +145,7 @@ def main() -> None:
         "spatial_condition": False,
         "spatial_condition_independent": True,
         "subject_region": has_subject,
-        "compact_paa": args.condition_size != args.width,
+        "compact_paa": compact_paa,
         "compact_paa_mode": "aligned1",
         "condition_layout": "corrected",
         "keyword": args.keyword,
