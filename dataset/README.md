@@ -14,6 +14,8 @@ configs:
 
 # PKA-SubjectSpatial-10K
 
+Dataset for [Rethinking Multi-Condition DiTs: Eliminating Redundant Attention via Position-Alignment and Keyword-Scoping](https://arxiv.org/abs/2602.06850), submitted to IEEE TVCG.
+
 PKA-SubjectSpatial-10K is the curated subject-and-spatial-control subset used
 to train the three released PKA Compact = 2 LoRAs. It contains target images,
 descriptions, subject references, and multiple spatial conditions for
@@ -66,10 +68,10 @@ optimizer. Conditions are encoded at 256 x 256 for 512 x 512 generation.
 ## Citation
 
 ```bibtex
-@article{zhou2026pka,
+@article{zhou2026rethinking,
   title={Rethinking Multi-Condition DiTs: Eliminating Redundant Attention via Position-Alignment and Keyword-Scoping},
   author={Zhou, Chao and Wei, Tianyi and Chen, Yiling and Zhou, Wenbo and Zhang, Weiming and Yu, Nenghai},
-  journal={IEEE Transactions on Visualization and Computer Graphics},
+  journal={arXiv preprint arXiv:2602.06850},
   year={2026}
 }
 ```
