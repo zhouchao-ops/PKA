@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pka-ominicontrol"
+version = "0.2.0"
+description = "PKA: composable multi-condition control for FLUX diffusion models"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+dependencies = [
+  "accelerate>=0.34",
+  "diffusers==0.31.0",
+  "numpy>=1.24",
+  "opencv-python>=4.8",
+  "peft>=0.12",
+  "Pillow>=10",
+  "protobuf>=4",
+  "PyYAML>=6",
+  "sentencepiece>=0.2",
+  "torch>=2.3",
+  "transformers>=4.44",
+]
+
+[project.urls]
+Homepage = "https://github.com/zhouchao-ops/PKA"
+Repository = "https://github.com/zhouchao-ops/PKA.git"
+Issues = "https://github.com/zhouchao-ops/PKA/issues"
+
+[project.optional-dependencies]
+train = [
+  "datasets>=2.20",
+  "lightning>=2.4",
+  "prodigyopt>=1.0",
+  "torchvision>=0.18",
+  "wandb>=0.17",
+]
+test = ["pytest>=8"]
+
+[project.scripts]
+ominicontrol = "ominicontrol.cli:main"
+pka = "ominicontrol.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["ominicontrol*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
