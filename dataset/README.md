@@ -14,7 +14,7 @@ the rights and provenance review below.
 
 ## Local snapshot
 
-- Historical local source name: `Allcond200k_high`
+- Public release name: `PKA-SubjectSpatial-10K`
 - On-disk size: approximately 13 GB
 - Format: Parquet, 50 shards per split
 - Train: 8,200 rows
@@ -23,10 +23,9 @@ the rights and provenance review below.
 - Collection field: all rows are currently labeled `collection_1`
 - Valid descriptions: 8,136/8,200 train and 1,564/1,575 test
 
-The public name is **PKA-SubjectSpatial-10K**, which accurately communicates
-the subject/spatial-control scope and approximate size. The historical local
-name must not be used in public-facing material because this snapshot contains
-9,775 rather than 200,000 examples.
+The public name is **PKA-SubjectSpatial-10K**, which communicates the
+subject/spatial-control scope and approximate size. The snapshot contains
+9,775 examples.
 
 ## Schema
 
