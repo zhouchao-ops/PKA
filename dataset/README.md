@@ -1,11 +1,11 @@
 ---
-pretty_name: OminiControl curated multi-condition training subset
-license: other
+pretty_name: PKA-SubjectSpatial-10K
+license: apache-2.0
 size_categories:
   - 1K<n<10K
 ---
 
-# Training dataset card (release draft)
+# PKA-SubjectSpatial-10K
 
 This directory documents the local dataset used for the three released 20K
 LoRAs. The dataset files are intentionally not copied into the source-code
@@ -14,7 +14,7 @@ the rights and provenance review below.
 
 ## Local snapshot
 
-- Local source: `Allcond200k_high`
+- Historical local source name: `Allcond200k_high`
 - On-disk size: approximately 13 GB
 - Format: Parquet, 50 shards per split
 - Train: 8,200 rows
@@ -23,9 +23,10 @@ the rights and provenance review below.
 - Collection field: all rows are currently labeled `collection_1`
 - Valid descriptions: 8,136/8,200 train and 1,564/1,575 test
 
-Despite the historical directory name, this snapshot does **not** contain
-200,000 examples. Do not publicly call it a 200K dataset without explaining
-the relationship to any larger source dataset.
+The public name is **PKA-SubjectSpatial-10K**, which accurately communicates
+the subject/spatial-control scope and approximate size. The historical local
+name must not be used in public-facing material because this snapshot contains
+9,775 rather than 200,000 examples.
 
 ## Schema
 
@@ -53,9 +54,6 @@ depth, or canny together with depth.
 6. Decide whether the 75 rows with invalid descriptions should be removed.
 7. Replace the placeholder `collection_1` values with useful provenance, or
    explain why source-level provenance cannot be provided.
-8. Choose an accurate dataset license. The historical README says Apache-2.0,
-   but that statement alone does not establish rights to the underlying
-   images, captions, or generated controls.
-
-Until those items are resolved, treat the dataset as **not cleared for public
-redistribution**.
+8. The release uses Apache-2.0, matching the historical dataset card. The
+   publisher remains responsible for confirming that it has the rights needed
+   to distribute the underlying images, captions, and generated controls.

@@ -18,7 +18,8 @@ cd checkpoints
 sha256sum -c SHA256SUMS
 ```
 
-The base model is not redistributed. Users must obtain it separately and
-comply with its license. Before publishing these adapters, the project owner
-must choose and state a weight license that is compatible with the base model
-and training data.
+The base model is not redistributed. These adapters are distributed under the
+FLUX.1 [dev] Non-Commercial License because they are fine-tuned derivatives of
+FLUX.1 [dev]. See `LICENSE-FLUX1-DEV.md` and `NOTICE`. Users must obtain the
+base model separately and comply with the same license, including its
+non-commercial and non-production restrictions.

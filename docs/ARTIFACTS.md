@@ -8,7 +8,6 @@
 | Canny + depth LoRA | `checkpoints/canny_depth/` | model repository |
 | Training dataset | not copied; documented in `dataset/` | separate dataset repository |
 | Training recipes | `configs/` | source repository and model cards |
-| Evaluation summaries | checkpoint directories | model cards/results table |
 
 The original local training data remains outside this bundle. Machine-specific
 paths must not appear in public configs or usage examples.

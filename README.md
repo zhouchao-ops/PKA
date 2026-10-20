@@ -154,5 +154,7 @@ layout is documented in `docs/ARTIFACTS.md`.
 
 ## License
 
-Apache-2.0. The base FLUX model, datasets, and distributed weights may have
-additional terms and are not covered by this source-code license.
+Source code is Apache-2.0. The PKA LoRA weights are FLUX.1 [dev] derivatives
+and use the FLUX.1 [dev] Non-Commercial License included under `checkpoints/`.
+The PKA-SubjectSpatial-10K dataset card declares Apache-2.0. These licenses
+apply to separate artifacts and must not be conflated.

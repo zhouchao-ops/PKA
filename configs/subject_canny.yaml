@@ -31,7 +31,7 @@ train:
     - "canny"
   dataset:
     type: "all_high"
-    path: "path/to/Allcond200k_high"
+    path: "path/to/PKA-SubjectSpatial-10K"
     condition_size: 256
     target_size: 512
     image_size: 512

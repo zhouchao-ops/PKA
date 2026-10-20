@@ -5,12 +5,10 @@
 - [x] Set the project name to PKA and repository to `zhouchao-ops/PKA`.
 - [ ] Add a public contact email.
 - [ ] Confirm copyright ownership and preserve upstream OminiControl notices.
-- [ ] Review the FLUX.1-dev license and choose compatible licenses for the three LoRA adapters.
+- [x] Include the FLUX.1-dev Non-Commercial License and required notice for the three LoRA adapters.
 - [ ] Complete the training-data provenance and rights review in `dataset/README.md`.
 - [ ] Add author names, paper title, arXiv/DOI, and citation metadata.
 - [ ] Decide whether the dataset will be released, replaced with a preparation script, or withheld.
-- [ ] Add a public evaluation protocol and results for canny+depth.
-- [ ] Verify all public metrics on a clearly identified, redistribution-safe held-out set.
 - [ ] Add representative example inputs/outputs after confirming image rights.
 
 ## Repository and model release
